@@ -1,0 +1,28 @@
+{
+  "types": {
+    "feat": {
+      "description": "A new feature",
+      "title": "Features"
+    },
+    "fix": {
+      "description": "A bug fix",
+      "title": "Bug Fixes"
+    },
+    "doc": {
+      "description": "Documentation only changes",
+      "title": "Documentation"
+    },
+    "test": {
+      "description": "Adding missing tests or correcting existing tests",
+      "title": "Tests"
+    },
+    "build": {
+      "description": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
+      "title": "Builds"
+    },
+    "example": {
+      "description": "Changes of examples or components' demos",
+      "title": "Examples"
+    }
+  }
+}
