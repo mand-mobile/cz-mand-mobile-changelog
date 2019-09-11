@@ -57,7 +57,7 @@ module.exports = function (options) {
         }, {
           type: 'input',
           name: 'scope',
-          message: 'What is the component name of this change (e.g. button, picker)? (press enter to skip)\n'
+          message: 'What is the component name of this change (e.g. button, picker, style, util)? (press enter to skip)\n'
         }, {
           type: 'input',
           name: 'subject',
