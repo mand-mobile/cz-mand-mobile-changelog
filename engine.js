@@ -17,11 +17,17 @@ var filter = function(array) {
 module.exports = function (options) {
 
   var types = options.types;
+  var packages = options.packages;
 
-  var length = longest(Object.keys(types)).length + 1;
-  var choices = map(types, function (type, key) {
+  var choices0 = map(types, function (type, key) {
     return {
-      name: rightPad(key + ':', length) + ' ' + type.description,
+      name: `${type.icon} ${rightPad(key + ':', longest(Object.keys(types)).length + 1)}  ${type.description}`,
+      value: key
+    };
+  });
+  var choices1 = map(packages, function (key) {
+    return {
+      name: key,
       value: key
     };
   });
@@ -53,11 +59,17 @@ module.exports = function (options) {
           type: 'list',
           name: 'type',
           message: 'Select the type of change that you\'re committing:',
-          choices: choices
+          choices: choices0
+        }, {
+          type: 'list',
+          name: 'package',
+          message: 'Select the package of change that you\'re committing: (press enter to skip)',
+          choices: choices1,
+          default: 'none'
         }, {
           type: 'input',
           name: 'scope',
-          message: 'What is the component name of this change (e.g. button, picker, style, util)? (press enter to skip)\n'
+          message: 'What is the scope of this change (e.g. component or file name, button/uniapp): (press enter to skip)\n'
         }, {
           type: 'input',
           name: 'subject',
@@ -103,11 +115,17 @@ module.exports = function (options) {
         };
 
         // parentheses are only needed when a scope is present
+        var type = answers.type;
+        var icon = types[answers.type].icon;
+        icon = icon ? icon + ' ' : ''
+
+        var package = answers.package !== 'none' ? answers.package : '';
         var scope = answers.scope.trim();
-        scope = scope ? '(' + answers.scope.trim() + ')' : '';
+        scope = [package, scope].filter(t => !!t).join('/');
+        scope = scope ? `(${scope})` : '';
 
         // Hard limit this line
-        var head = (answers.type + scope + ': ' + answers.subject.trim()).slice(0, maxLineWidth);
+        var head = (icon + type + scope + ': ' + answers.subject.trim()).slice(0, maxLineWidth);
 
         // Wrap these lines at 100 characters
         var body = wrap(answers.body, wrapOptions);
@@ -120,7 +138,7 @@ module.exports = function (options) {
         var issues = answers.issues ? wrap(answers.issues, wrapOptions) : '';
 
         var footer = filter([ breaking, issues ]).join('\n\n');
-
+        
         commit(head + '\n\n' + body + '\n\n' + footer);
       });
     }

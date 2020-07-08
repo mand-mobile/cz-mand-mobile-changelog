@@ -2,39 +2,44 @@
   "types": {
     "feat": {
       "description": "A new feature",
-      "title": "Features"
+      "title": "Features",
+      "icon": "🎸"
     },
     "fix": {
       "description": "A bug fix",
-      "title": "Bug Fixes"
+      "title": "Bug Fixes",
+      "icon": "🐛"
     },
     "chore": {
       "description": "Other changes that don't modify src or test files",
-      "title": "Chores"
+      "title": "Chores",
+      "icon": "🤖"
     },
     "refactor": {
       "description": "A code change that neither fixes a bug nor adds a feature",
-      "title": "Code Refactoring"
-    },
-    "code-style": {
-      "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
-      "title": "Code Styles"
+      "title": "Code Refactoring",
+      "icon": "💡"
     },
     "doc": {
       "description": "Documentation only changes",
-      "title": "Documentation"
+      "title": "Documentation",
+      "icon": "✏️ "
     },
     "test": {
       "description": "Adding missing tests or correcting existing tests",
-      "title": "Tests"
-    },
-    "build": {
-      "description": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
-      "title": "Builds"
+      "title": "Tests",
+      "icon": "💍"
     },
     "example": {
       "description": "Changes of examples or components' demos",
-      "title": "Examples"
+      "title": "Examples",
+      "icon": "🍭"
+    },
+    "code-style": {
+      "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
+      "title": "Code Styles",
+      "icon": "💄"
     }
-  }
+  },
+  "packages": ["none", "components", "platform", "shared", "scroller", "builder"]
 }
