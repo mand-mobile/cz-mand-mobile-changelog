@@ -105,7 +105,7 @@ module.exports = function (options) {
         }
       ]).then(function(answers) {
 
-        var maxLineWidth = 100;
+        var maxLineWidth = 150;
 
         var wrapOptions = {
           trim: true,
