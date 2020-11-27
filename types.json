@@ -25,6 +25,11 @@
       "title": "Documentation",
       "icon": "✏️ "
     },
+    "site": {
+      "description": "Documentation site changes",
+      "title": "Site",
+      "icon": "💻"
+    },
     "test": {
       "description": "Adding missing tests or correcting existing tests",
       "title": "Tests",
